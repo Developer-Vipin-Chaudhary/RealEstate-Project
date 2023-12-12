@@ -1,6 +1,6 @@
 # project
 
-## Start front end frontend 
+## Start frontend 
 `cd client`
 </br>
 `npm i`
