@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
 
@@ -141,11 +141,10 @@ const Search = () => {
               className="border rounded-lg p-3 w-40"
               value={sidebarData.searchTerm}
               onChange={handleChange}
-
             />
           </div>
 
-          <div className="flex gap-2 flex-wrap items-center gap-8">
+          <div className="flex  flex-wrap items-center gap-8">
             <label className="font-semibold text-gray-700">Type:</label>
             <div className="flex gap-2">
               <input
@@ -187,9 +186,9 @@ const Search = () => {
               />
               <span>Offer</span>
             </div>
-          {/* </div> */}
+            {/* </div> */}
 
-          {/* <div className="flex gap-2 flex-wrap items-center "> */}
+            {/* <div className="flex gap-2 flex-wrap items-center "> */}
             <label className="font-semibold text-gray-700">Amenities:</label>
             <div className="flex gap-2">
               <input
@@ -243,7 +242,9 @@ const Search = () => {
             <p className="text-xl text-gray-700">No listings found!</p>
           )}
           {loading && (
-            <p className="text-xl text-gray-700 text-center w-full">Loading...</p>
+            <p className="text-xl text-gray-700 text-center w-full">
+              Loading...
+            </p>
           )}
 
           {!loading &&
