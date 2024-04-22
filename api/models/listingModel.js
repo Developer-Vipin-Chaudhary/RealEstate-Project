@@ -54,8 +54,12 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    reviews: {
+      type: [String], // Define reviews as an array of strings
+      default: [], // Default to an empty array
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Listing = mongoose.model("Listing", listingSchema);
