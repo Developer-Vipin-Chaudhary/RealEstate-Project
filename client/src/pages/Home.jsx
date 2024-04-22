@@ -27,7 +27,7 @@ const Home = () => {
     <div className="bg-gray-50">
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-4xl font-extrabold leading-tight mb-6 animate__animated animate__fadeIn">
+          <h1 className="text-xl md:text-xl font-extrabold leading-tight mb-6 animate__animated animate__fadeIn">
             Find Your Next <span className="text-yellow-300">Dream</span> Place
             with Top Security
           </h1>
@@ -42,7 +42,7 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
             Recent Offers
           </h2>
           <a
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {offerListings.map((listing) => (
+          {offerListings.map(listing => (
             <div
               key={listing._id}
               className="shadow-lg p-4 rounded-lg bg-white hover:shadow-xl transition duration-300"
@@ -67,7 +67,7 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
             Recent Places For Rent
           </h2>
           <a
@@ -79,7 +79,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {rentListings.map((listing) => (
+          {rentListings.map(listing => (
             <div
               key={listing._id}
               className="shadow-lg p-4 rounded-lg bg-white hover:shadow-xl transition duration-300"
@@ -92,7 +92,7 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
             Recent Places For Sale
           </h2>
           <a
@@ -104,7 +104,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {saleListings.map((listing) => (
+          {saleListings.map(listing => (
             <div
               key={listing._id}
               className="shadow-lg p-4 rounded-lg bg-white hover:shadow-xl transition duration-300"
