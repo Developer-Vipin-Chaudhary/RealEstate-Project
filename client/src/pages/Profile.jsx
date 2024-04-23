@@ -1,7 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaShare, FaUser, FaCamera, FaPencilAlt, FaTrash, FaSignOutAlt } from 'react-icons/fa';
+import {
+  FaShare,
+  FaUser,
+  FaCamera,
+  FaPencilAlt,
+  FaTrash,
+  FaSignOutAlt,
+} from 'react-icons/fa';
 import {
   getDownloadURL,
   getStorage,
@@ -49,7 +56,8 @@ const Profile = () => {
     uploadTask.on(
       'state_changed',
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setFilePerc(Math.round(progress));
       },
       (error) => {
@@ -180,11 +188,11 @@ const Profile = () => {
           />
           <img
             onClick={() => fileRef.current.click()}
-            className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2 border border-blue-500"
+            className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2 border border-cyan-500"
             src={formData.avatar || currentUser.avatar}
             alt="Profile"
           />
-          <FaCamera className="text-blue-500 absolute bottom-0 right-0 cursor-pointer bg-white rounded-full p-2" />
+          <FaCamera className="text-cyan-500 absolute bottom-0 right-0 cursor-pointer bg-white rounded-full p-2" />
         </label>
         <p className="text-sm text-center">
           {fileUploadError ? (
@@ -192,7 +200,7 @@ const Profile = () => {
               Error Uploading Image (must be less than 2 MB)
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
-            <span className="text-blue-700">{`Uploading ${filePerc}%`}</span>
+            <span className="text-cyan-700">{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
             <span className="text-green-700">Image Successfully Uploaded!</span>
           ) : (
@@ -224,7 +232,7 @@ const Profile = () => {
         />
         <button
           disabled={loading}
-          className="bg-blue-700 text-white rounded-lg p-4 uppercase hover:bg-blue-600 disabled:opacity-80"
+          className="bg-cyan-700 text-white rounded-lg p-4 uppercase hover:bg-cyan-600 disabled:opacity-80"
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
@@ -260,7 +268,7 @@ const Profile = () => {
       </p>
       <button
         onClick={handleShowListings}
-        className="bg-blue-700 text-white rounded-lg p-4 uppercase hover:bg-blue-600 disabled:opacity-80 w-full"
+        className="bg-cyan-700 text-white rounded-lg p-4 uppercase hover:bg-cyan-600 disabled:opacity-80 w-full"
       >
         Show Listings
       </button>
@@ -286,7 +294,7 @@ const Profile = () => {
                 />
               </Link>
               <Link
-                className="text-blue-700 font-semibold hover:underline truncate flex-1"
+                className="text-cyan-700 font-semibold hover:underline truncate flex-1"
                 to={`/listing/${listing._id}`}
               >
                 <p>{listing.name}</p>

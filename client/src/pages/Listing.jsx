@@ -82,7 +82,7 @@ const Listing = () => {
               <FaMapMarkerAlt className="text-green-700" />
               {listing.address}
             </p>
-            <p className="text-lg font-semibold text-blue-700">
+            <p className="text-lg font-semibold text-cyan-700">
               $
               {listing.offer
                 ? listing.discountPrice.toLocaleString("en-US")
@@ -114,7 +114,7 @@ const Listing = () => {
             {notOwner && (
               <button
                 onClick={() => setContact(true)}
-                className="bg-blue-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-6"
+                className="bg-cyan-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-6"
               >
                 Contact Landlord
               </button>
@@ -236,7 +236,7 @@ const Reviews = ({ listingId, notOwner }) => {
           {!showReviewForm && (
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="bg-blue-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-4"
+              className="bg-cyan-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-4"
             >
               Add Review
             </button>
@@ -253,7 +253,7 @@ const Reviews = ({ listingId, notOwner }) => {
               ></textarea>
               <button
                 type="submit"
-                className="bg-blue-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-4"
+                className="bg-cyan-700 text-white rounded-lg uppercase hover:opacity-95 p-3 mt-4"
               >
                 Submit Review
               </button>

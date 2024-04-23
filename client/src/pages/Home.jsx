@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="bg-gray-50">
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-cyan-600 to-cyan-800 text-white py-20">
         <div className="container mx-auto text-center">
           <h1 className="text-xl md:text-xl font-extrabold leading-tight mb-6 animate__animated animate__fadeIn">
             Find Your Next <span className="text-yellow-300">Dream</span> Place
@@ -33,7 +33,7 @@ const Home = () => {
           </h1>
           <Link
             href="/search"
-            className="bg-yellow-400 text-blue-800 px-8 py-4 rounded-full hover:bg-yellow-500 hover:scale-105 text-xl font-bold transition transform duration-300 shadow-lg"
+            className="bg-yellow-400 text-cyan-800 px-8 py-4 rounded-full hover:bg-yellow-500 hover:scale-105 text-xl font-bold transition transform duration-300 shadow-lg"
           >
             Start Your Search
           </Link>
@@ -42,12 +42,12 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-cyan-700 mb-6">
             Recent Offers
           </h2>
           <a
             href="/search?offer=true"
-            className="text-blue-600 hover:text-blue-800 text-xl font-medium transition duration-300"
+            className="text-cyan-600 hover:text-cyan-800 text-xl font-medium transition duration-300"
           >
             See More Offers
           </a>
@@ -67,12 +67,12 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-cyan-700 mb-6">
             Recent Places For Rent
           </h2>
           <a
             href="/search?type=rent"
-            className="text-blue-600 hover:text-blue-800 text-xl font-medium transition duration-300"
+            className="text-cyan-600 hover:text-cyan-800 text-xl font-medium transition duration-300"
           >
             Explore More Rentals
           </a>
@@ -92,12 +92,12 @@ const Home = () => {
 
       <section className="container mx-auto py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-xl md:text-4xl font-bold text-blue-700 mb-6">
+          <h2 className="text-xl md:text-4xl font-bold text-cyan-700 mb-6">
             Recent Places For Sale
           </h2>
           <a
             href="/search?type=sale"
-            className="text-blue-600 hover:text-blue-800 text-xl font-medium transition duration-300"
+            className="text-cyan-600 hover:text-cyan-800 text-xl font-medium transition duration-300"
           >
             Discover More for Sale
           </a>

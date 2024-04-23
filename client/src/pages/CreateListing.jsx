@@ -3,14 +3,14 @@ import {
   getDownloadURL,
   getStorage,
   ref,
-  uploadBytesResumable,
+  uploadBytesResumable
 } from "firebase/storage";
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const CreateListing = () => {
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector(state => state.user);
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const CreateListing = () => {
     discountPrice: 0,
     offer: false,
     parking: false,
-    furnished: false,
+    furnished: false
   });
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -33,7 +33,7 @@ const CreateListing = () => {
   const [loading, setLoading] = useState(false);
   console.log(formData);
 
-  const handleImageSubmit = (e) => {
+  const handleImageSubmit = e => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
       setImageUploadError(false);
@@ -44,15 +44,15 @@ const CreateListing = () => {
       }
 
       Promise.all(promises)
-        .then((urls) => {
+        .then(urls => {
           setFormData({
             ...formData,
-            imageUrls: formData.imageUrls.concat(urls),
+            imageUrls: formData.imageUrls.concat(urls)
           });
           setImageUploadError(false);
           setUploading(false);
         })
-        .catch((err) => {
+        .catch(err => {
           setImageUploadError("Image upload is failed (2mb max per image)");
           setUploading(false);
         });
@@ -62,7 +62,7 @@ const CreateListing = () => {
     }
   };
 
-  const storeImage = async (file) => {
+  const storeImage = async file => {
     return new Promise((resolve, reject) => {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + file.name;
@@ -70,16 +70,16 @@ const CreateListing = () => {
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
+        snapshot => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done!`);
         },
-        (error) => {
+        error => {
           reject(error);
         },
         () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
             resolve(downloadURL);
           });
         }
@@ -87,18 +87,18 @@ const CreateListing = () => {
     });
   };
 
-  const handleRemoveImage = (index) => {
+  const handleRemoveImage = index => {
     setFormData({
       ...formData,
-      imageUrls: formData.imageUrls.filter((_, i) => i !== index),
+      imageUrls: formData.imageUrls.filter((_, i) => i !== index)
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     if (e.target.id === "sale" || e.target.id === "rent") {
       setFormData({
         ...formData,
-        type: e.target.id,
+        type: e.target.id
       });
     }
 
@@ -109,7 +109,7 @@ const CreateListing = () => {
     ) {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.checked,
+        [e.target.id]: e.target.checked
       });
     }
 
@@ -120,12 +120,12 @@ const CreateListing = () => {
     ) {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.value,
+        [e.target.id]: e.target.value
       });
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
       if (formData.imageUrls.length < 1)
@@ -140,12 +140,12 @@ const CreateListing = () => {
       const res = await fetch("/api/listing/create", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           ...formData,
-          userRef: currentUser._id,
-        }),
+          userRef: currentUser._id
+        })
       });
 
       const data = await res.json();
@@ -196,7 +196,7 @@ const CreateListing = () => {
             onChange={handleChange}
             value={formData.address}
           />
-  
+
           <div className="flex gap-6 flex-wrap">
             <div className="flex gap-2">
               <input
@@ -249,7 +249,7 @@ const CreateListing = () => {
               <span>Offer</span>
             </div>
           </div>
-  
+
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2">
               <input
@@ -293,7 +293,7 @@ const CreateListing = () => {
                 <span className="text-xs">($ / Month)</span>
               </div>
             </div>
-  
+
             {formData.offer && (
               <div className="flex items-center gap-2">
                 <input
@@ -314,7 +314,7 @@ const CreateListing = () => {
             )}
           </div>
         </div>
-  
+
         <p className="font-semibold">
           Images:
           <span className="font-normal text-gray-600 ml-2">
@@ -323,7 +323,7 @@ const CreateListing = () => {
         </p>
         <div className="flex gap-4">
           <input
-            onChange={(e) => setFiles(e.target.files)}
+            onChange={e => setFiles(e.target.files)}
             className="p-3 border border-gray-300 rounded w-full"
             type="file"
             id="images"
@@ -344,7 +344,10 @@ const CreateListing = () => {
         </p>
         {formData.imageUrls.length > 0 &&
           formData.imageUrls.map((url, index) => (
-            <div key={url} className="flex justify-between p-3 border items-center">
+            <div
+              key={url}
+              className="flex justify-between p-3 border items-center"
+            >
               <img
                 src={url}
                 alt="listing image"
@@ -357,11 +360,11 @@ const CreateListing = () => {
                 Delete
               </button>
             </div>
-         ) )}
-  
+          ))}
+
         <button
           disabled={loading || uploading}
-          className="p-3 bg-blue-700 text-white rounded-lg uppercase hover:opacity-90 disabled:opacity-80"
+          className="p-3 bg-cyan-700 text-white rounded-lg uppercase hover:opacity-90 disabled:opacity-80"
         >
           {loading ? "Creating...." : "Create Listing"}
         </button>
@@ -369,5 +372,5 @@ const CreateListing = () => {
       </form>
     </main>
   );
-}  
+};
 export default CreateListing;

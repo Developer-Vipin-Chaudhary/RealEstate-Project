@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -19,10 +19,10 @@ const SignUp = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -35,7 +35,7 @@ const SignUp = () => {
       }
       setLoading(false);
       setError(null);
-      navigate("/sign-in");
+      navigate('/sign-in');
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -71,16 +71,16 @@ const SignUp = () => {
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+          className="bg-cyan-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
         >
-          {loading ? "Loading...." : "Sign Up"}
+          {loading ? 'Loading....' : 'Sign Up'}
         </button>
       </form>
 
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
-        <Link to={"/sign-in"}>
-          <span className="text-blue-700">Sign In</span>
+        <Link to={'/sign-in'}>
+          <span className="text-cyan-700">Sign In</span>
         </Link>
       </div>
 

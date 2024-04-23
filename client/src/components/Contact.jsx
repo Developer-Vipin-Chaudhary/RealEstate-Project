@@ -5,7 +5,7 @@ const Contact = ({ listing }) => {
   const [landlord, setLandlord] = useState(null);
   const [message, setMessage] = useState("");
 
-  const onChange = (e) => {
+  const onChange = e => {
     setMessage(e.target.value);
   };
 
@@ -43,7 +43,7 @@ const Contact = ({ listing }) => {
 
           <Link
             to={`mailto:${landlord.email}?subject=Regarding ${listing.name}&body=${message}`}
-            className="bg-blue-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95"
+            className="bg-cyan-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95"
           >
             Send Message
           </Link>
